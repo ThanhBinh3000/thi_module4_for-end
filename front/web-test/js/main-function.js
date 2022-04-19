@@ -19,7 +19,7 @@ function showAll() {
 </table>`;
             document.getElementById('content').innerHTML = content;
             document.getElementById('top').innerHTML =`<div class="col-9"><h3>Danh sách thành phố</h3></div>
-            <div class="col-3"><button class="btn btn-primary" onclick="showFormCreate()">Thêm thành phố</button></div>`
+            <div class="col-6"><button class="btn btn-primary" onclick="showFormCreate()">Thêm thành phố</button></div>`
         }
     })
 }
@@ -58,8 +58,11 @@ function viewDetail(id) {
         url: "http://localhost:8080/cities/" + id,
         success: function (data) {
             document.getElementById('content').innerHTML = `<div class="row">
+  <div class="col-10"><button class="btn btn-primary" onclick="showAll()">Xem danh sách thành phố</button></div>
         <div class="col-6">Thành phố ${data.name}</div>
-        <div class="col-6"><button class="btn btn-primary" onclick="showAll()">Xem danh sách thành phố</button></div>
+          
+
+       
     </div>
     <div class="row mt-3">
         <p>Tên: ${data.name}</p>
@@ -72,9 +75,9 @@ function viewDetail(id) {
         <p>${data.description}</p>
     </div>
 <div class="row">
-<div class="col-6"></div>
-<div class="col-3"><button class="btn btn-primary" onclick="showFormEdit(${data.id})">Chỉnh sửa</button></div>
-<div class="col-3"><button class="btn btn-danger" onclick="showFormDelete(${data.id})">Xóa</button></div>
+<div class="col-10"></div>
+<div class="col-9"><button class="btn btn-danger" onclick="showFormDelete(${data.id})">Xóa</button></div>
+<div class="col-10"><button class="btn btn-primary" onclick="showFormEdit(${data.id})">Chỉnh sửa</button></div>
 </div>`
         }
     })
